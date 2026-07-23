@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="theme-color" content="#0b1f18" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="description" content="技能麻将 — 好好玩 要爆了。随机抽取本局麻将技能规则。" />
+    <meta property="og:title" content="技能麻将" />
+    <meta property="og:description" content="好好玩 要爆了" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/mahjong-bg.jpg" />
+    <title>技能麻将</title>
+    <!-- 微信内置浏览器常无法稳定加载 Google Fonts，优先系统中文字体 -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="bg-layer" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="spark-layer" id="sparkLayer" aria-hidden="true"></div>
+
+    <main class="app">
+      <header class="hero">
+        <p class="brand">技能麻将</p>
+        <p class="tagline">好好玩 要爆了</p>
+      </header>
+
+      <section class="stage" aria-label="技能抽选">
+        <div class="tile-frame" id="tileFrame">
+          <div class="tile-glow"></div>
+          <div class="reel-window">
+            <div class="reel" id="reel">
+              <div class="skill-card" id="displayCard">
+                <span class="skill-card__hint">等待开局</span>
+                <h2 class="skill-card__name" id="displayName">？？？</h2>
+                <p class="skill-card__rule" id="displayRule">
+                  点击下方「开始」抽取本局技能
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="scanline" aria-hidden="true"></div>
+        </div>
+
+        <p class="pool-meta" id="poolMeta">候选池 · 20 / 20</p>
+
+        <div class="controls">
+          <button type="button" class="btn btn-primary" id="mainBtn">
+            开始
+          </button>
+          <button type="button" class="btn btn-ghost" id="poolBtn">
+            技能池
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="sheet"
+      id="poolSheet"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="poolTitle"
+    >
+      <div class="sheet__backdrop" id="sheetBackdrop"></div>
+      <div class="sheet__panel">
+        <header class="sheet__header">
+          <div>
+            <h2 id="poolTitle">技能池</h2>
+            <p class="sheet__sub">勾选后进入抽奖候选 · 默认全选</p>
+          </div>
+          <button type="button" class="icon-btn" id="closePool" aria-label="关闭">
+            ✕
+          </button>
+        </header>
+
+        <div class="sheet__toolbar">
+          <button type="button" class="chip" id="selectAllBtn">全选</button>
+          <button type="button" class="chip chip-muted" id="clearAllBtn">
+            清空
+          </button>
+          <span class="sheet__count" id="sheetCount">已选 20</span>
+        </div>
+
+        <ul class="skill-list" id="skillList"></ul>
+
+        <div class="sheet__footer">
+          <button type="button" class="btn btn-primary btn-block" id="confirmPool">
+            确认候选池
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/skills.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -23,3 +23,13 @@ python3 -m http.server 5173
 2. **拖拽上传**：解压 `skill-mahjong-netlify.zip`，把文件夹拖到 [Netlify Drop](https://app.netlify.com/drop)
 
 `netlify.toml` 已写好发布目录与缓存头。
+
+## 微信打不开最新版？
+
+微信内置浏览器缓存很重。立刻刷新可用：
+
+1. 链接后加随机参数，例如 `https://你的域名/?t=1`
+2. 或在微信里：右上角 `···` → 刷新
+3. 仍旧：微信设置 → 通用 → 存储空间 → 清理缓存
+
+以后每次发版会改 `index.html` 里 CSS/JS 的 `?v=` 版本号，避免继续吃旧资源。

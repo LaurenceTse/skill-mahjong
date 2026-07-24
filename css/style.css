@@ -559,6 +559,16 @@ button {
   flex: 1;
 }
 
+.skill-group {
+  margin: 10px 4px 6px;
+  padding: 4px 4px 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #f3d99a;
+  list-style: none;
+}
+
 .skill-item {
   display: -webkit-box;
   display: -webkit-flex;
@@ -571,6 +581,15 @@ button {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-item__code {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #f3d99a;
+  opacity: 0.85;
 }
 
 .skill-item.is-checked {

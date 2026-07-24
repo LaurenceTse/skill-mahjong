@@ -182,8 +182,17 @@
   function renderPoolList() {
     els.skillList.innerHTML = "";
     const frag = document.createDocumentFragment();
+    let lastGroup = null;
 
     skills.forEach((skill) => {
+      if (skill.group !== lastGroup) {
+        lastGroup = skill.group;
+        const heading = document.createElement("li");
+        heading.className = "skill-group";
+        heading.textContent = skill.group;
+        frag.appendChild(heading);
+      }
+
       const li = document.createElement("li");
       li.className = "skill-item";
 
@@ -203,6 +212,10 @@
       body.className = "skill-item__body";
       body.htmlFor = input.id;
 
+      const meta = document.createElement("span");
+      meta.className = "skill-item__code";
+      meta.textContent = skill.code;
+
       const name = document.createElement("p");
       name.className = "skill-item__name";
       name.textContent = skill.name;
@@ -211,6 +224,7 @@
       rule.className = "skill-item__rule";
       rule.textContent = skill.rule;
 
+      body.appendChild(meta);
       body.appendChild(name);
       body.appendChild(rule);
       li.appendChild(input);
